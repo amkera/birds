@@ -7,9 +7,3 @@ An egg can be one of many types -- chickenEgg, turkeyEgg, etc.
 
 All eggs, including chicken eggs, have a hatch behavior.
 An egg can only hatch once and will always produce a bird of the appropriate type.
-
-
-
-Birds should lay eggs (Egg.new)
-
-Chickens should inherit from birds.

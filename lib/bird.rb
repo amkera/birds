@@ -47,6 +47,14 @@ class Egg
   def self.all
     @@all
   end
+
+  def hatch
+    #add logic for can only hatch once
+    puts 'A bird is hatching...'
+    @bird = Bird.new(species)
+    puts @bird
+  end
+
 end
 
 class Chicken < Bird
@@ -62,7 +70,10 @@ chicken1.lay_egg
 
 turkey1 = Turkey.new("turkey")
 turkey1.lay_egg
-puts turkey1.eggs
 
-puts ("These are chicken1's eggs:  #{chicken1.eggs}")
+puts ("First egg of chicken1:  #{chicken1.eggs[0]}")
 puts ("These are turkey1's eggs:  #{turkey1.eggs}")
+
+#hatching first egg of chicken1
+
+chicken1.eggs[0].hatch
