@@ -16,8 +16,8 @@ class Bird
   #   egg.bird = self
   #   egg.species = species
   # end
-
   #it shouldn't take IN an egg...it should create one
+
   def lay_egg
     @egg = Egg.new(species)
     @egg.bird = self
@@ -35,12 +35,13 @@ end
 
 
 class Egg
-  attr_accessor :species, :bird
+  attr_accessor :species, :bird, :hatched
 
   @@all = []
 
-  def initialize(species)
+  def initialize(species, hatched = false)
     @species = species
+    @hatched = hatched
     @@all << self
   end
 
@@ -48,32 +49,9 @@ class Egg
     @@all
   end
 
-  def hatch
-    #add logic for can only hatch once
-    puts 'A bird is hatching...'
-    @bird = Bird.new(species)
-    puts @bird
-  end
 
 end
 
-class Chicken < Bird
-end
+class Chicken < Bird; end
 
-class Turkey < Bird
-end
-
-chicken1 = Chicken.new("chicken")
-chicken1.lay_egg
-chicken1.lay_egg
-
-
-turkey1 = Turkey.new("turkey")
-turkey1.lay_egg
-
-puts ("First egg of chicken1:  #{chicken1.eggs[0]}")
-puts ("These are turkey1's eggs:  #{turkey1.eggs}")
-
-#hatching first egg of chicken1
-
-chicken1.eggs[0].hatch
+class Turkey < Bird; end
