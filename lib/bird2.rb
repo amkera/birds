@@ -11,13 +11,14 @@ end
 
 class Egg
 
+
   @@hatch_count = 0
 
   def hatch
     if @@hatch_count > 0
        puts ("Sorry, this egg has already been hatched!")
     end
-    @bird = Bird.new
+    @bird = Bird.new()
     @@hatch_count += 1
     puts ("A new bird has been hatched: #{@bird}")
 
@@ -25,12 +26,11 @@ class Egg
 
 end
 
-class Chicken < Bird
+class Chicken < Bird; end
 
-end
 
 chicken1 = Chicken.new
 puts(chicken1)
 egg1 = chicken1.lay_egg
 puts(egg1)
-chicken_2 = egg1.hatch
+chicken_2 = egg1.hatch #should make a new chicken, not a new bird 
