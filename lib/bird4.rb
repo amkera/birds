@@ -1,8 +1,12 @@
+require 'pry'
+
 class Bird
 
   def lay_egg
     @egg = Egg.new(self.class)
+    #self.class is Chicken
   end
+
 
 end
 
@@ -11,18 +15,17 @@ class Egg
   attr_accessor :bird_species
 
   def initialize(bird)
-    @Bird = bird
+    @bird_class = bird
     @hatch_count = 0
+    #@bird_class = Chicken
   end
-
-  #@@hatch_count = 0
 
   def hatch
 
     if @hatch_count > 0
        puts ("Sorry, this egg has already been hatched!")
     else
-      @bird = @Bird.new
+      @bird = @bird_class.new
       @hatch_count += 1
       puts ("Hatch successful: #{@bird}")
       @bird
